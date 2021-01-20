@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{myCss.css}">
+</head>
+<body>
+
+<h1>Input</h1>
+<h2>Enter your name</h2>
+
+<form th:action="@{customHello}">
+    <label>Name:</label>
+    <input type="text" name="fullName">
+    <p>
+        <input type="submit"><br>
+        <input type="reset">
+    </p>
+
+</form>
+
+</body>
+</html>
