@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Libary</title>
+</head>
+<body>
+<h1>Add a game to library: </h1>
+<form method="post" th:action="@{/processInput}" th:object="${game}">
+    ID: <input type="number" th:field="*{id}"><br>
+    Title: <input type="text" th:field="*{title}"><br>
+    Publisher: <input type="text" th:field="*{publisher}"><br>
+    Platform: <input type="text" th:field="*{platform}"><br>
+    Price:  <input type="number" step="0.01" th:field="*{price}"><br>
+    <input type="submit">
+</form>
+
+<h2>Game List</h2>
+<table>
+    <tr>
+        <th>ID</th><th>TITLE</th><th>PUBLISHER</th><th>PLATFORMS</th><th>PRICE</th>
+    </tr>
+    <span th:each="g:${gamesList}">
+        <tr>
+            <td th:text="${g.id}">someID</td>
+            <td th:text="${g.title}">someID</td>
+            <td th:text="${g.publisher}">someID</td>
+            <td th:text="${g.platform}">someID</td>
+            <td th:text="${g.price}">someID</td>
+        </tr>
+    </span>
+</table>
+
+</body>
+</html>
