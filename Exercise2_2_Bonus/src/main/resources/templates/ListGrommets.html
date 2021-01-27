@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Grommets Invoice</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+<h1>Grommets Order List</h1>
+<div th:each="g:${grommetList}">
+    <div th:switch="${g.color}">
+        <div th:case="'Red'" class="grommet" th:text="${g.symbol}" th:classappend="color-red">
+            someSymbol
+        </div>
+        <div th:case="'Blue'"class="grommet" th:text="${g.symbol}" th:classappend="color-green">
+            someSymbol
+        </div>
+        <div th:case="'Green'" class="grommet" th:text="${g.symbol}" th:classappend="color-blue">
+            someSymbol
+        </div>
+        <div th:case="'Magenta'" class="grommet" th:text="${g.symbol}" th:classappend="color-magenta">
+            someSymbol
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

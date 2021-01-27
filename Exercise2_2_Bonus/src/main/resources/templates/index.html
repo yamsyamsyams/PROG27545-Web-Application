@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+        input[type=number] {
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+<h1>Place your Grommet order here.</h1>
+<form method="post" action="grommetFactory">
+    <table>
+        <tr>
+            <td>Red Grommets</td>
+            <td>
+                <input type="number" name="numRed" value="0">
+                <select name="redSymbol">
+                    <option>%</option>
+                    <option>$</option>
+                    <option>@</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Blue Grommets</td>
+            <td>
+                <input type="number" name="numBlue" value="0">
+                <select name="blueSymbol">
+                    <option>%</option>
+                    <option>$</option>
+                    <option>@</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Green Grommets</td>
+            <td>
+                <input type="number" name="numGreen" value="0">
+                <select name="greenSymbol">
+                    <option>%</option>
+                    <option>$</option>
+                    <option>@</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit">
+</form>
+</body>
+</html>
