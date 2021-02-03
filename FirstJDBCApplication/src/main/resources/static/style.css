@@ -1,0 +1,10 @@
+tr:nth-child(even){
+    background-color: green;
+}
+
+tr:nth-child(odd){
+    background-color: greenyellow;
+}
+td{
+    color: magenta;
+}
