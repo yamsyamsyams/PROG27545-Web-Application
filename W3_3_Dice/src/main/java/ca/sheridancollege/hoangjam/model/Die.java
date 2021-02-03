@@ -6,7 +6,7 @@ import java.util.Random;
 
 @Data
 public class Die {
-    private int face = 1;
+    private int face;
     Random random = new Random();
 
     public void rollDie() {

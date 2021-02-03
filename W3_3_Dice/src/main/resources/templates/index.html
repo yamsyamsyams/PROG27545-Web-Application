@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Rollz</title>
+</head>
+<body>
+<h1>DICE RESULTS</h1>
+
+<img th:each="d:${game.dice}" th:src="@{'/images/side_' + ${d.getFace()} + '.png'}"/>
+<h2>Total: <span th:text="${game.total()}"></span></h2>
+
+<form method="POST" th:action="@{/}">
+    Number of Dice:
+    <select th:name="num">
+        <option th:each="i : ${#numbers.sequence(1, 7)}" th:value="${i}" th:text="${i}">
+        </option>
+    </select>
+    <input type="submit" value="Roll"/>
+
+</form>
+</body>
+</html>
