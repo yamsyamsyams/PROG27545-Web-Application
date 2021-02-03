@@ -9,6 +9,11 @@
 <form method="post" th:action="@{/processInput}" th:object="${student}">
     ID: <input type="number" th:field="*{id}"><br> <!--* references a field of an object-->
     Full name: <input type="text" th:field="*{name}"><br>
+    Program of Study: <select th:field="*{program}">
+    <th:block th:each="p:${programs}">
+        <option th:text="${p}" th:value="${p}"></option>
+    </th:block>
+</select>
     <input type="submit">
 </form>
 

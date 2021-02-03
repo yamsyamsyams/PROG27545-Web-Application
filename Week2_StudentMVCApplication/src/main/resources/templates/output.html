@@ -9,13 +9,14 @@
 <h1>Here is the student's information</h1>
 <table>
     <tr>
-        <th>ID</th><th>NAME</th>
+        <th>ID</th><th>NAME</th><th>PROGRAM</th>
     </tr>
 
     <span th:each="s:${myStudents}">
         <tr>
             <td th:text="${s.id}">someID</td>
             <td th:text="${s.name}">someName</td>
+            <td th:text="${s.program}">someProgram</td>
         </tr>
     </span>
 </table>

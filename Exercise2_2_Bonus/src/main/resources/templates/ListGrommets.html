@@ -22,8 +22,13 @@
             someSymbol
         </div>
     </div>
-
 </div>
+<!-- Altneratively, without switch case
+<span th:each="grommet:${grommetList}">
+    <div class="grommet" th:text="${grommet.symbol}"
+         th:classappend="${grommet.color}"></div>
+</span>
+-->
 
 </body>
 </html>
