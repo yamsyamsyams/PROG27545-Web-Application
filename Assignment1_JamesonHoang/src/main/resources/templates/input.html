@@ -6,23 +6,22 @@
 </head>
 <body>
 <h1>PLAY ROCK PAPER SCISSORS AGAINST THE COMPUTER</h1>
-<form method="post">
-    <div class="RadioButtons">
-        <input type="radio" value="0">
-        <label>Rock</label>
-        <br>
-        <input type="radio" value="1">
-        <label>Paper</label>
-        <br>
-        <input type="radio" value="2">
-        <label>Scissor</label>
-        <br>
-    </div>
-    <input type="submit" value="Play"/>
-    <br>
-    <br>
+<form method="post" th:action="@{/processInput}">
 
-    <footer>Jameson Hoang | 991548515</footer>
+    <input type="radio" id="paper" name="choice" value="paper">
+    <label for="paper">Paper</label>
+    <br>
+    <input type="radio" id="rock" name="choice" value="paper">
+    <label for="rock">Rock</label>
+    <br>
+    <input type="radio" id="scissor" name="choice" value="paper">
+    <label for="scissor">Scissor</label>
+
+    <br>
+    <input type="submit" value="Play"/>
+
 </form>
+<br>
+<footer>Jameson Hoang | 991548515</footer>
 </body>
 </html>
