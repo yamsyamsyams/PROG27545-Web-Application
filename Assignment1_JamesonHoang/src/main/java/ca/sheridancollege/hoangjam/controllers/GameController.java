@@ -29,8 +29,7 @@ public class GameController {
 
     @PostMapping("processInput")
     public String processChoice(Model model, @ModelAttribute Game game){
-        model.addAttribute("choice", game.getUserChoice());
-
+        model.addAttribute("game", game);
 
         return "output";
     }
