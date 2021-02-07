@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GAMEPLAY</title>
+</head>
+<body>
+
+<h2>
+    Your choice was:
+</h2>
+
+<h2>
+    Computer picked:
+</h2>
+
+<h3>
+    Winner:
+</h3>
+
+<form method="post" th:action="@{/}">
+    Play again?
+    <input type="submit" value="Play again">
+</form>
+
+
+</body>
+</html>
