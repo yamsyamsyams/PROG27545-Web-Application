@@ -1,0 +1,21 @@
+h1{
+    color: maroon;
+    text-align: center;
+    justify-content: center;
+}
+
+input{
+    justify-content: center;
+}
+
+label{
+    justify-content: center;
+    font-family: "Comic Sans MS";
+    color: #2d2d2d;
+}
+
+.btnSubmit{
+    border-radius: 10px;
+    font-family: "Comic Sans MS";
+
+}

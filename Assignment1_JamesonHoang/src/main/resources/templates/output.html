@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>GAMEPLAY</title>
+    <link rel="stylesheet" th:href="@{outputStyle.css}">
 </head>
 <body>
 
-<h2>
-    Your choice was: <span th:text="${game.userChoiceName}"></span>
-</h2>
-
-<h2>
-    Computer picked: <span th:text="${game.computerChoiceName}"></span>
-</h2>
-
 <h3>
-    Winner: <span th:text="${game.getWinnerName()}"></span>
+    Your choice was: <span class="userChoice" th:text="${game.userChoiceName}"></span>
 </h3>
 
+<h3>
+    Computer picked: <span class="comChoice" th:text="${game.computerChoiceName}"></span>
+</h3>
+
+<h1>
+    Winner: <span th:text="${game.getWinnerName()}"></span>
+</h1>
+
 <form method="post" th:action="@{/}">
-    Play again?
     <br>
-    <input type="submit" value="Play again">
+    <input type="submit" value="Click here to play again">
 </form>
 
 

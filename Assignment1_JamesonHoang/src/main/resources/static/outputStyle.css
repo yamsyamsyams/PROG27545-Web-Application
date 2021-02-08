@@ -1,0 +1,19 @@
+h1{
+    color: gold;
+    font-family: Broadway;
+    font-size: 100px;
+    align-content: center;
+}
+
+h3{
+    color: maroon;
+    align-content: center;
+}
+
+.comChoice{
+    color: red;
+}
+
+.userChoice{
+    color: blue;
+}
