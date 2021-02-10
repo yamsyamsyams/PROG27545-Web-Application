@@ -19,17 +19,26 @@ public class MainController {
     }
 
     @GetMapping("CheckAnswer.do")
-    public ModelAndView checkAnswer(HttpSession session, @RequestParam int userAnswer) {
+    public ModelAndView checkAnswer(HttpSession session, @RequestParam String userAnswer) {
 
-        // casting it to the correct object to get access
-        MulObject mulObj = (MulObject) session.getAttribute("mulObj");
-        ModelAndView mv;
+        ModelAndView mv = null;
+        int answer = 0;
 
-        if (userAnswer == mulObj.getResult()) {
-            mv = new ModelAndView("CorrectAnswer", "userAnswer", userAnswer);
-        }
-        else{
-            mv = new ModelAndView("WrongAnswer", "userAnswer", userAnswer);
+        try {
+            answer = Integer.parseInt(userAnswer);
+
+            // casting it to the correct object to get access
+            MulObject mulObj = (MulObject) session.getAttribute("mulObj");
+
+            if (answer == mulObj.getResult()) {
+                mv = new ModelAndView("CorrectAnswer", "userAnswer", userAnswer);
+            } else if (answer != mulObj.getResult()) {
+                mv = new ModelAndView("WrongAnswer", "userAnswer", userAnswer);
+            } else if (mulObj == null) {
+                mv = new ModelAndView("SessionExpired");
+            }
+        } catch (NumberFormatException e) {
+            mv = new ModelAndView("BadInput", "userAnswer", userAnswer);
         }
         return mv;
     }
