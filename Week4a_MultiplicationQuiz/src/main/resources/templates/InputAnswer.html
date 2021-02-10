@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Answer</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+<h1>
+    Multiplication Quiz
+</h1>
+<h2>
+    Enter your answer below!
+</h2>
+<form th:action="@{CheckAnswer.do}">
+    <label>
+        <span th:text="${session.mulObj.a}" class="number"></span>
+        *
+        <span th:text="${session.mulObj.b}" class="number"></span>
+        =
+    </label>
+        <input type="text" name="userAnswer">
+        <input type="submit" value="Submit Answer">
+</form>
+
+<footer>Sheridan College 2021</footer>
+</body>
+</html>

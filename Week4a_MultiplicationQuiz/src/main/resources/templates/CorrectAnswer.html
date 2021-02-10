@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Correct Answer</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+<h1> Multiplication Quiz</h1>
+<h2> Correct Answer</h2>
+<p class="problem_text">
+    <span th:text="${session.mulObj.a}" class="number"></span>
+    *
+    <span th:text="${session.mulObj.b}" class="number"></span>
+    =
+    <span th:text="${userAnswer}" class="number"></span>
+</p>
+<a th:href="@{InputAnswer.do}">Back to Quiz</a>
+
+<footer>Sheridan College 2021</footer>
+</body>
+</html>
