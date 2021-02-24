@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/mycss.css}">
+</head>
+<body>
+<div class="index">
+<h1>List of fruits</h1>
+</div>
+<table style="width:50%">
+<tr>
+<th:block th:each="f:${fruits}">
+<th:block th:each="i:${#numbers.sequence(1,f.weight)}">
+<td><img th:src="@{'/images/'+ ${f.fType} +'.png'}"></td>
+</th:block>
+</th:block></tr>
+</table>
+<div>
+<p th:text="'Total due =$' +  ${grandTotal}">Hello</p></div>
+<div>
+<p><a th:href="@{/newOrder}">New Order</a></div>
+</body>
+</html>

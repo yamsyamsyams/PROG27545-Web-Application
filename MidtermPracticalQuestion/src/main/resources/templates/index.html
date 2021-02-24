@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/mycss.css}">
+</head>
+<body>
+<div class="index">
+<h1>Order your fruits now!</h1>
+</div>
+<form method="post" th:action="@{/processFruit}">
+<table>
+<tr><td>Apple: </td><td><input type="number" name="appleQ"></td>
+<tr><td>Orange: </td><td><input type="number" name="orangeQ"></td>
+<tr><td>Grape: </td><td><input type="number" name="grapeQ"></td>
+<tr><td><input type="submit" value="Order Fruits"></td></tr>
+</table>
+</form>
+</body>
+</html>

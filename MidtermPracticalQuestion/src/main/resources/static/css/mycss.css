@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+div.index{
+color:white;
+background-color:blue;}
+table{
+	border-collapse: collapse;
+  width: 50%;
+}
+td{color:white;
+background-color:green;}
+
+img{
+	
+	width:50px;
+    height:50px;
+    float:left;
+    border:1px solid black;
+}
