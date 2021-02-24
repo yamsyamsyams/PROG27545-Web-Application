@@ -1,7 +1,9 @@
 package ca.sheridancollege.midterm.controllers;
 
 
+import ca.sheridancollege.midterm.database.DatabaseAccess;
 import ca.sheridancollege.midterm.model.Fruit;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,9 @@ import java.util.List;
 
 @Controller
 public class FruitController {
+
+    @Autowired
+    private DatabaseAccess da;
 
     List<Fruit> fruits = new ArrayList<Fruit>();
 
@@ -27,7 +32,7 @@ public class FruitController {
     }
 
     @PostMapping("/processFruit")
-    public String processFruits(Model model,
+    public String processFruit(Model model,
                                 @RequestParam int appleQ,
                                 @RequestParam int orangeQ,
                                 @RequestParam int grapeQ){
@@ -43,10 +48,13 @@ public class FruitController {
         }
 
         double grandTotal = 0;
-
         for(Fruit f : fruits){
             grandTotal += f.getSubTotal();
         }
+
+//        for(Fruit f : fruits){
+//            da.insertFruit(f.getFType(), f.getWeight(), f.getSubTotal());
+//        }
 
         model.addAttribute("fruits", fruits);
 
