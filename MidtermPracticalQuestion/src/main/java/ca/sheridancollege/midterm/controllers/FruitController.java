@@ -52,9 +52,9 @@ public class FruitController {
             grandTotal += f.getSubTotal();
         }
 
-//        for(Fruit f : fruits){
-//            da.insertFruit(f.getFType(), f.getWeight(), f.getSubTotal());
-//        }
+        for(Fruit f : fruits){
+            da.insertFruit(f.getFType(), f.getWeight(), f.getSubTotal());
+        }
 
         model.addAttribute("fruits", fruits);
 

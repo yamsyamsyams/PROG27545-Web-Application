@@ -13,10 +13,12 @@ public class DatabaseAccess {
 
     public void insertFruit(String fType, int weight, double subTotal){
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "INSERT INTO fruit(fType) VALUES (:fType, :weight, :subTotal)";
-        int rowsAffected = jdbc.update(query, namedParameters);
-        if (rowsAffected > 0){
+
+        // don't know the proper SQL syntax to insert this
+//        String query = "INSERT INTO fruit(fType, weight, subTotal) VALUES (:fType, :weight, :subTotal)";
+//        int rowsAffected = jdbc.update(query, namedParameters);
+//        if (rowsAffected > 0){
             System.out.println("The fruit was inserted successfully");
-        }
+//        }
     }
 }
