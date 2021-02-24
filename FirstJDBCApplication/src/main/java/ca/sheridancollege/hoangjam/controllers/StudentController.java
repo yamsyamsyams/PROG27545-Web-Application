@@ -4,8 +4,10 @@ import ca.sheridancollege.hoangjam.database.DatabaseAccess;
 import ca.sheridancollege.hoangjam.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -13,20 +15,55 @@ import org.springframework.web.servlet.ModelAndView;
 public class StudentController {
 
     @Autowired
-    DatabaseAccess da;
+    private DatabaseAccess da;
+
+    ModelAndView mv;
 
     @GetMapping("/")
-    public ModelAndView index(){
+    public ModelAndView index(Model model){
 
-        return new ModelAndView("index", "student", new Student());
+        mv = new ModelAndView("index","students",da.getStudents());
+        mv.addObject("student", new Student());
+        return mv;
+
     }
 
     @PostMapping("/insertStudent")
-    public ModelAndView processStudent(@ModelAttribute Student student){
+    public ModelAndView  processStudent(@ModelAttribute Student student){
 
         da.insertStudent(student.getName());
+        mv = new ModelAndView("index","students",da.getStudents());
+        return mv;
 
-        return new ModelAndView("index", "students", da.getStudents());
+    }
+
+    @GetMapping("/deleteStudentById/{id}")
+    public ModelAndView  deleteStudent(@PathVariable Long id){
+
+        da.deleteStudentByID(id);
+        mv = new ModelAndView("redirect:/","students",da.getStudents());
+        return mv;
+
+    }
+
+    @GetMapping("/editStudentById/{id}")
+    public ModelAndView  editStudent(@PathVariable Long id){
+
+        Student student = da.getStudent(id).get(0);
+        //da.editStudentByID(student);
+        mv = new ModelAndView("update","students",da.getStudents());
+        mv.addObject("student", student);
+        return mv;
+
+    }
+
+    @PostMapping("/updateStudent")
+    public ModelAndView  updateStudent(@ModelAttribute Student student){
+
+        da.editStudentByID(student);
+        mv = new ModelAndView("redirect:/","students",da.getStudents());
+        return mv;
+
     }
 
 }
