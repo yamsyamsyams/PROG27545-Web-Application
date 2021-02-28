@@ -19,7 +19,21 @@ public class DatabaseAccess {
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
         String query = "SELECT * FROM teams";
         return jdbc.query(query, namedParameters, new BeanPropertyRowMapper<Team>(Team.class));
+    }
 
+    public void addTeam(String teamName, String continent, int played, int won, int drawn, int lost){
+        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+        String query = "INSERT INTO teams (TeamName, Continent, Played, Won, Drawn, Lost) VALUES (:teamName, :continent, :played, :won, :drawn, :lost)";
+        namedParameters.addValue("TeamName", teamName);
+        namedParameters.addValue("Continent", continent);
+        namedParameters.addValue("Played", played);
+        namedParameters.addValue("Won", won);
+        namedParameters.addValue("Drawn", drawn);
+        namedParameters.addValue("Lost", lost);
+        int rowsAffected = jdbc.update(query, namedParameters);
+        if(rowsAffected > 0){
+            System.out.println("Team was inserted successfully");
+        }
     }
 
 }

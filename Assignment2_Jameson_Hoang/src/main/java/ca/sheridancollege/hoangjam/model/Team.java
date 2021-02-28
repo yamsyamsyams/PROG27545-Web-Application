@@ -10,6 +10,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Team implements Serializable {
+    private Long id;
     private String teamFlag;
     private String teamName;
     private String continent;
