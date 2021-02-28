@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>WORLD CUP RESULTS</title>
 </head>
 <body>
+<header>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/goToAddTeam}">Add Team</a>
+    <a th:href="@{/editTeam}">Edit Team</a>
+    <a th:href="@{/deleteTeam}">Delete Team</a>
+    <a th:href="@{/displayResults}">Display Results</a>
+</header>
 
+<table width="50%" th:if="${teams} != null">
+    <tr>
+        <th>Team (Country)</th>
+        <th>Continent</th>
+        <th>Played</th>
+        <th>Won</th>
+        <th>Drawn</th>
+        <th>Lost</th>
+        <th>Pts</th>
+
+    </tr>
+    <tr th:each="t: ${teams}">
+        <td th:text="${t.teamName}">Default team</td>
+        <td th:text="${t.continent}">Default continent</td>
+        <td th:text="${t.played}">Default played</td>
+        <td th:text="${t.won}">Default won</td>
+        <td th:text="${t.lost}">Default lost</td>
+        <td th:text="${t.drawn}">Default drawn</td>
+    </tr>
+</table>
+
+<footer>&copy; 2021 by Jameson Hoang, 991548515. All rights reserved</footer>
 </body>
 </html>

@@ -13,8 +13,9 @@ public class Team implements Serializable {
     private String teamFlag;
     private String teamName;
     private String continent;
-    private int playedGames;
-    private int wonGames;
-    private int drawnGames;
-    private int lostGames;
+    private int played;
+    private int won;
+    private int drawn;
+    private int lost;
+
 }

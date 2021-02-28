@@ -12,18 +12,14 @@ import java.util.List;
 @Repository
 public class DatabaseAccess {
 
+    @Autowired
     protected NamedParameterJdbcTemplate jdbc;
 
     public List<Team> getTeams(){
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
         String query = "SELECT * FROM teams";
         return jdbc.query(query, namedParameters, new BeanPropertyRowMapper<Team>(Team.class));
-    }
 
-    public void addTeam(String name){
-        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-//        String query = "INSERT INTO "
     }
-
 
 }
