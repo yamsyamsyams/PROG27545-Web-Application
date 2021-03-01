@@ -1,0 +1,44 @@
+img{
+    border-style: solid;
+    border-color: black;
+}
+
+header{
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+
+}
+
+a{
+    border-style: solid;
+    border-color: black;
+    color: gold;
+    background-color: darkred;
+}
+
+table{
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    border-style: solid;
+    background-color: darkred;
+}
+
+th{
+    font-size: x-large;
+    color: gold;
+}
+
+td{
+    border: 1px solid black;
+    font-size: larger;
+    color: white;
+}
+
+footer{
+    align-content: center;
+    text-align: center;
+    align-content: center;
+}

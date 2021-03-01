@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>ADD A TEAM</title>
+    <title>WORLD CUP RESULTS</title>
     <link rel="stylesheet" th:href="@{myCss.css}">
 </head>
 <body>
@@ -12,7 +12,9 @@
     <a th:href="@{/goToEditTeam}">Edit Team</a>
     <a th:href="@{/goToDeleteTeam}">Delete Team</a>
     <a th:href="@{/displayResults}">Display Results</a>
+
 </header>
+
 <table width="50%" th:if="${teams} != null">
     <tr>
         <th>Team (Country)</th>
@@ -31,19 +33,9 @@
         <td th:text="${t.drawn}">Default drawn</td>
         <td th:text="${t.lost}">Default lost</td>
         <td th:text="0.0">Points Placeholder</td>
+        <td><a th:href="@{'/deleteTeamForm/' + ${t.id}}">DELETE</a></td>
     </tr>
 </table>
-
-<form method="post" th:action="@{/addTeamForm}" th:object="${team}">
-    <input type="hidden" th:field="*{id}">
-    Team Name: <input type="text" th:field="*{teamName}"><br>
-    Continent: <input type="text" th:field="*{continent}"><br>
-    Number of Played Games: <input type="number" th:field="*{played}"><br>
-    Number of Won Games: <input type="number" th:field="*{won}"><br>
-    Number of Drawn Games: <input type="number" th:field="*{drawn}"><br>
-    Number of Lost Games: <input type="number" th:field="*{lost}"><br>
-    <input type="submit" value="Add Team">
-</form>
 
 <footer>&copy; 2021 by Jameson Hoang, 991548515. All rights reserved</footer>
 </body>

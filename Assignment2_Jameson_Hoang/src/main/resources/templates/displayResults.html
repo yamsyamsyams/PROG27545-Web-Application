@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>WORLD CUP RESULTS</title>
+    <link rel="stylesheet" th:href="@{myCss.css}">
 </head>
 <body>
 <header>
     <a th:href="@{/}">Home</a>
     <a th:href="@{/goToAddTeam}">Add Team</a>
-    <a th:href="@{/editTeam}">Edit Team</a>
-    <a th:href="@{/deleteTeam}">Delete Team</a>
+    <a th:href="@{/goToEditTeam}">Edit Team</a>
+    <a th:href="@{/goToDeleteTeam}">Delete Team</a>
     <a th:href="@{/displayResults}">Display Results</a>
 </header>
 
@@ -22,16 +23,19 @@
         <th>Drawn</th>
         <th>Lost</th>
         <th>Pts</th>
-
     </tr>
     <tr th:each="t: ${teams}">
+        <!--        testing purposes, ID here is called NULL, but in DB it is auto-incrementing... -->
+        <!--        <td th:text="${t.id}">Default id</td>-->
         <td th:text="${t.teamName}">Default team</td>
         <td th:text="${t.continent}">Default continent</td>
         <td th:text="${t.played}">Default played</td>
         <td th:text="${t.won}">Default won</td>
-        <td th:text="${t.lost}">Default lost</td>
         <td th:text="${t.drawn}">Default drawn</td>
+        <td th:text="${t.lost}">Default lost</td>
+        <td th:text="0.0">Points Placeholder</td>
     </tr>
+
 </table>
 
 <footer>&copy; 2021 by Jameson Hoang, 991548515. All rights reserved</footer>

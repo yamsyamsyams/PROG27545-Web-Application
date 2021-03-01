@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>WORLD CUP HOMEPAGE</title>
+    <link rel="stylesheet" th:href="@{myCss.css}">
+
 </head>
 <body>
 <header>
     <a th:href="@{/}">Home</a>
     <a th:href="@{/goToAddTeam}">Add Team</a>
-    <a th:href="@{/editTeam}">Edit Team</a>
-    <a th:href="@{/deleteTeam}">Delete Team</a>
+    <a th:href="@{/goToEditTeam}">Edit Team</a>
+    <a th:href="@{/goToDeleteTeam}">Delete Team</a>
     <a th:href="@{/displayResults}">Display Results</a>
 </header>
+
+<img src="images/wc2018.png" alt="World Cup 2018">
+
 
 <footer>&copy; 2021 by Jameson Hoang, 991548515. All rights reserved</footer>
 </body>

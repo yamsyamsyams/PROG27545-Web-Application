@@ -3,7 +3,6 @@ package ca.sheridancollege.hoangjam.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 
 @Data
@@ -11,7 +10,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Team implements Serializable {
     private Long id;
-    private String teamFlag;
+//    private String teamFlag;
     private String teamName;
     private String continent;
     private int played;

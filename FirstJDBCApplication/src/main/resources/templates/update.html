@@ -5,10 +5,15 @@
     <title>Title</title>
     <link rel="stylesheet"  th:href="@{/style.css}">
 </head>
-<body >
-<h1> List of all students:</h1>
+<body>
+<h1>List of all students:</h1>
 <table width="50%" th:if="${students} != null">
-    <tr><th>ID</th><th>NAME</th><th>EDIT</th><th>DELETE</th></tr>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
     <tr th:each="s: ${students}">
         <td th:text="${s.id}">1000</td>
         <td th:text="${s.name}">Frank</td>
