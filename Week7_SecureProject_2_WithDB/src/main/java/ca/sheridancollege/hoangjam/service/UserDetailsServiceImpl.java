@@ -3,6 +3,7 @@ package ca.sheridancollege.hoangjam.service;
 
 import ca.sheridancollege.hoangjam.database.DatabaseAccess;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -18,6 +19,7 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
+    @Lazy
     private DatabaseAccess da;
 
     @Override

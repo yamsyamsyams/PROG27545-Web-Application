@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -16,6 +17,28 @@ public class DatabaseAccess {
 
     @Autowired
     private NamedParameterJdbcTemplate jdbc;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    public void addRole(Long userId, Long roleId) {
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        String query = "INSERT INTO user_role(userId, roleId)"
+                + " VALUES (:userId, :roleId)";
+        parameters.addValue("userId", userId); parameters.addValue("roleId", roleId); jdbc.update(query,
+                parameters);
+    }
+
+    public void addUser(String email, String password){
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        String query = "INSERT INTO sec_user"
+                + "(email, encryptedPassword, enabled)"
+                + " VALUES (:email, :encryptedPassword, 1)";
+        parameters.addValue("email", email);
+        parameters.addValue("encryptedPassword",
+                passwordEncoder.encode(password));
+        jdbc.update(query, parameters);
+    }
 
     public User findUserAccount(String email) {
         MapSqlParameterSource parameters = new MapSqlParameterSource();
