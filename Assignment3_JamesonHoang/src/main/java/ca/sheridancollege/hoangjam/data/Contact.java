@@ -9,5 +9,4 @@ public class Contact implements Serializable {
 
     private Integer id;
     private String fullName = "";
-
 }
